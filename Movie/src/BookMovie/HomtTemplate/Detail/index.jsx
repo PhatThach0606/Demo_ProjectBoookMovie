@@ -1,7 +1,19 @@
+import fetchDataMovie from "./slice";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
 export default function Details() {
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state.DetailReducer);
+  const { id } = useParams();
+
+  useEffect(() => {
+    dispatch(fetchDataMovie(id));
+  }, [id]);
+
   return (
     <div>
-      <h1>Details</h1>
+      <h1>{state.data?.tenPhim}</h1>
     </div>
   );
 }

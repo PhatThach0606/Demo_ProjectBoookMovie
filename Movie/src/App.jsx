@@ -6,6 +6,7 @@ import ListMovie from "./BookMovie/HomtTemplate/ListMovie";
 import AdminTemplate from "./BookMovie/AdminTemplate";
 import AddUser from "./BookMovie/AdminTemplate/AddUser";
 import Dasboard from "./BookMovie/AdminTemplate/Dasboard";
+import Details from "./BookMovie/HomtTemplate/Detail";
 function App() {
   return (
     <>
@@ -16,6 +17,7 @@ function App() {
             <Route path="" element={<HomePage />} />
             <Route path="about" element={<AboutPage />} />
             <Route path="list-movie" element={<ListMovie />} />
+            <Route path="detail/:id" element={<Details />} />
           </Route>
           {/* AdminTemplate  */}
           <Route path="admin" element={<AdminTemplate />}>
