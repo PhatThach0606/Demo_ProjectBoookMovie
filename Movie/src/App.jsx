@@ -7,6 +7,7 @@ import AdminTemplate from "./BookMovie/AdminTemplate";
 import AddUser from "./BookMovie/AdminTemplate/AddUser";
 import Dasboard from "./BookMovie/AdminTemplate/Dasboard";
 import Details from "./BookMovie/HomtTemplate/Detail";
+import AuthPage from "./BookMovie/AdminTemplate/AuthPage";
 function App() {
   return (
     <>
@@ -24,6 +25,7 @@ function App() {
             <Route path="dasboard" element={<Dasboard />} />
             <Route path="adduser" element={<AddUser />} />
           </Route>
+          <Route path="auth" element={<AuthPage />} />
         </Routes>
       </BrowserRouter>
     </>

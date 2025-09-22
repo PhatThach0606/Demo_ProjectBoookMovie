@@ -5,13 +5,12 @@ import { useEffect } from "react";
 export default function ListMovie() {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.listMovieReducer);
+
   useEffect(() => {
     dispatch(FetchData());
   }, []);
-
+  const { data, loading } = state;
   const RenderListMovie = () => {
-    const { data } = state;
-
     return data?.map((movie) => {
       return (
         <div key={movie.maPhim}>
@@ -20,6 +19,9 @@ export default function ListMovie() {
       );
     });
   };
+  if (loading) {
+    return <div className="text-center mt-50">Loading Movie</div>;
+  }
   return (
     <div className="container mx-auto mt-30 grid grid-cols-4 gap-10 mb-10">
       {RenderListMovie()}

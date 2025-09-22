@@ -8,7 +8,7 @@ const initialState = {
 };
 
 export const fetchDataMovie = createAsyncThunk(
-  "fetchDataMovie",
+  "DetailReducer/fetchDataMovie",
   async (id, { rejectWithValue }) => {
     try {
       const response = await axios({
@@ -33,13 +33,15 @@ const DetailReducer = createSlice({
   extraReducers: (builder) => {
     builder.addCase(fetchDataMovie.pending, (state) => {
       state.loading = true;
+      state.error = null;
     });
     builder.addCase(fetchDataMovie.fulfilled, (state, action) => {
       state.loading = false;
       state.data = action.payload;
     });
     builder.addCase(fetchDataMovie.rejected, (state, action) => {
-      (state.loading = false), (state.error = action.payload);
+      state.loading = false;
+      state.error = action.payload;
     });
   },
 });
